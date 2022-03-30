@@ -3,6 +3,7 @@ package edu.lunhu.taxi.entity;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Objects;
 
@@ -11,9 +12,13 @@ import java.util.Objects;
 public class Tariff extends Audit {
 
     @Id
+    @GeneratedValue
     private Long id;
+
     private String name;
+
     private Float minPrice;
+
     private Float pricePerKilometer;
 
     @Override

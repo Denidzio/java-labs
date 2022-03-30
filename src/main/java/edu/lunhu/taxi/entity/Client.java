@@ -11,6 +11,7 @@ import java.util.Objects;
 public class Client extends Audit {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
@@ -18,10 +19,6 @@ public class Client extends Audit {
     @ManyToOne
     @JoinColumn(name = "client_class_id")
     private ClientClass clientClass;
-
-    @OneToOne
-    @JoinColumn(name = "order_id")
-    private Order currentOrder;
 
     @Override
     public boolean equals(Object o) {

@@ -12,13 +12,19 @@ import java.util.Objects;
 public class Driver extends Audit {
 
     @Id
+    @GeneratedValue
     private Long id;
+
     private String fullName;
+
     private LocalDate birthDate;
+
     private String license;
+
     @OneToOne
     @JoinColumn(name = "car_id")
     private Car car;
+
     @ManyToMany
     private List<Tariff> tariffs;
 

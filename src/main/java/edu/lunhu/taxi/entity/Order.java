@@ -11,6 +11,7 @@ import java.util.Objects;
 public class Order {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     @ManyToOne
