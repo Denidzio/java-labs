@@ -1,5 +1,6 @@
 package edu.lunhu.taxi.controller;
 
+import edu.lunhu.taxi.dto.ClientOrderDto;
 import edu.lunhu.taxi.entity.Client;
 import edu.lunhu.taxi.service.ClientService;
 import lombok.AllArgsConstructor;
@@ -37,6 +38,11 @@ public class ClientController {
     @DeleteMapping("/{id}")
     public Client delete(@PathVariable Long id) {
         return clientService.delete(id);
+    }
+
+    @GetMapping("/order")
+    public ClientOrderDto makeOrder() {
+        return clientService.makeOrder();
     }
 
 }

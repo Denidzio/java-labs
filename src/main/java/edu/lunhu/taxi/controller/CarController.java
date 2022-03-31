@@ -16,8 +16,9 @@ public class CarController {
 
     @GetMapping
     public List<Car> getAll(@RequestParam(required = false, defaultValue = "10") Integer size,
-                            @RequestParam(required = false, defaultValue = "0") Integer page) {
-        return carService.getAll(size, page);
+                            @RequestParam(required = false, defaultValue = "0") Integer page,
+                            @RequestParam(required = false, defaultValue = "") String model) {
+        return carService.getAll(size, page, model);
     }
 
     @GetMapping("/{id}")

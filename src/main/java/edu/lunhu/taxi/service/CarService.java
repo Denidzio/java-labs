@@ -15,10 +15,14 @@ public class CarService  {
 
     private final CarRepository carRepository;
 
-    public List<Car> getAll(Integer size, Integer page) {
+    public List<Car> getAll(Integer size, Integer page, String model) {
         Pageable paging = PageRequest.of(page, size);
-        var carList =  carRepository.findAll(paging);
-        return carList.toList();
+
+        var cars = model.isEmpty()
+                ? carRepository.findAll(paging)
+                : carRepository.getCarsByModelContains(model, paging);
+
+        return cars.toList();
     }
 
     public Car getOne(Long id) {
